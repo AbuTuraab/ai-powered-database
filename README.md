@@ -20,3 +20,8 @@ Open your browser and visit `http://localhost:3000`.
 
 Follow this link to the backend -> https://github.com/ademolab91/eve
 
+## About demo data (demo.sqlite3)
+
+The database is a retailer of scale models of classic cars. It contains typical business data, including information about customers, products, sales orders, sales order line items, and more.
+
+See more -> https://www.mysqltutorial.org/mysql-sample-database.aspx
