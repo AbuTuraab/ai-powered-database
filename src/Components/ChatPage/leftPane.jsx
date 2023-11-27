@@ -131,11 +131,11 @@ const LeftPane = () => {
           <div>
             <div>History</div>
             <div className="p-2">
-              {" "}
+              
               <ul>
                 {requests.map((reqs) => (
                 reqs.me? 
-                  <li key={reqs.index}>{reqs.message}</li>:<div> </div>
+                  <li key={reqs.index}>{reqs.message}</li>:{}
                 ))}
               </ul>
             </div>
