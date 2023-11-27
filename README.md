@@ -1,8 +1,39 @@
-# React + Vite
+Installation
+Clone the repository:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+bash
+Copy code
+git clone https://github.com/AbuTuraab/ai-powered-database.git/
+Navigate to the project directory:
 
-Currently, two official plugins are available:
+bash
+Copy code
+cd e-commerce-react-ai
+Install dependencies:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+bash
+Copy code
+npm install
+Usage
+Start the development server:
+
+bash
+Copy code
+npm start
+Open your browser and visit http://localhost:3000.
+
+Configuration
+AI Integration: To configure AI features, provide your AI service credentials in the config.js file.
+Dependencies
+React
+React Router
+
+
+Contributing
+We welcome contributions! If you would like to contribute, please follow our contribution guidelines.
+
+License
+This project is licensed under the MIT License.
+
+Contact
+For support or inquiries, please contact us at support@example.com.
