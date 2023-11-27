@@ -6,6 +6,7 @@ Copy code
 git clone https://github.com/AbuTuraab/ai-powered-database.git/
 Navigate to the project directory:
 
+The link to the backend is as follows: https://github.com/ademolab91/eve
 bash
 Copy code
 cd e-commerce-react-ai
@@ -22,8 +23,8 @@ Copy code
 npm start
 Open your browser and visit http://localhost:3000.
 
-Configuration
-AI Integration: To configure AI features, provide your AI service credentials in the config.js file.
+
+
 Dependencies
 React
 React Router
