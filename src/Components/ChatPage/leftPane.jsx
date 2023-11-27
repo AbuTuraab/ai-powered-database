@@ -6,9 +6,7 @@ import axios from "axios";
 
 const LeftPane = () => {
   const [prompt, setPrompt] = useState("");
-
   const [requests, setRequests] = useState([]);
-  const [responses, setResponses] = useState([]);
 
   const handleSubmit = (e, prompt) => {
     e.preventDefault();
@@ -29,9 +27,11 @@ const LeftPane = () => {
     };
 
     axios(data)
-      .then((result) => {
-        const res = JSON.stringify(result.data.output);
-        setResponses([...responses, res]);
+      .then((results) => {
+        setRequests([
+          ...requests,
+          { me: false, message: results.data.output.result },
+        ]);
       })
       .catch((error) => {
         console.log(error);
@@ -42,7 +42,7 @@ const LeftPane = () => {
   };
 
   const newRequest = ({ prompt }) => {
-    requests.push(prompt);
+    requests.push({ me: true, message: prompt });
   };
 
   const clearInput = () => {
@@ -74,16 +74,26 @@ const LeftPane = () => {
           <section>
             <div className="relative  p-6 overflow-y-auto ">
               <div>
-                {requests.map((reqs) => {
-                  console.log(reqs);
-                  return (
-                    <div
-                      className="p-3  bg-[#F7F9FA] w-[555px]  left-[470px] top-[20px] relative overflow-y-auto border-b"
-                      key={reqs.index}
-                    >
-                      {reqs}
-                    </div>
-                  );
+                {requests.map((reqs, i) => {
+                  if (reqs.me) {
+                    return (
+                      <div
+                        className="p-3  bg-[#F7F9FA] w-[555px]  left-[470px] top-[20px] relative overflow-y-auto border-b"
+                        key={i}
+                      >
+                        {reqs.message}
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div
+                        className="relative w-[555px] bg-[#F7F9FA] m-8 top-[5px] left-[45px] p-6 overflow-y-auto "
+                        key={i}
+                      >
+                        {reqs.message}
+                      </div>
+                    );
+                  }
                 })}
               </div>
 
@@ -91,18 +101,6 @@ const LeftPane = () => {
                 <div className="w-[30px] top-[50px] left-[10px] relative h-[20px]">
                   <img src={SmileAvatar} alt="smile" />
                 </div>
-
-                {responses.map((resps) => {
-                  console.log(resps);
-                  return (
-                    <div
-                      className="relative w-[555px] bg-[#F7F9FA] mt-5 top-[5px] left-[45px] p-6 overflow-y-auto "
-                      key={resps.index}
-                    >
-                      {resps}
-                    </div>
-                  );
-                })}
               </div>
             </div>
           </section>
@@ -120,7 +118,7 @@ const LeftPane = () => {
               </label>
 
               <div className="w-[29px] relative left-[68px] h-[29px] rounded-[7.25px] top-[10px]  ">
-                <button type="submit">
+                <button type="submit" id="btn">
                   <img src={ArrowRight} alt="smile" />
                 </button>
               </div>
@@ -136,7 +134,8 @@ const LeftPane = () => {
               {" "}
               <ul>
                 {requests.map((reqs) => (
-                  <li key={reqs.index}>{reqs}</li>
+                reqs.me? 
+                  <li key={reqs.index}>{reqs.message}</li>:<div> </div>
                 ))}
               </ul>
             </div>

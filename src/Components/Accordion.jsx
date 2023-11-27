@@ -1,20 +1,22 @@
 import { useState } from "react"
+import { Link, useNavigate } from 'react-router-dom';
+import Robot from "../assets/Robot.png"
 
-const Accordion = ({items}) => {
+const Accordion = () => {
   
-    const [activeIndex, setActiveIndex] = useState(0);
-    const handleClick = (index) => {
-       setActiveIndex(index === activeIndex ? 0 : index);
-    };
-
+   const navigate = useNavigate()
+    const handleClick = ()=>{
+       navigate("/chat")
+    }
+  
     return (
-       <div className="font-bold ">
-          {items.map((item, index) => (
-             <div key={item.title} className="">
-                <button onClick={() =>handleClick(index)} className="bg-yellow">{item.title}</button>
-                {index === activeIndex && <p>{item.content}</p>}
-             </div>
-          ))}
+       <div className="font-[Poppin]">
+        <div className="flex h-[500px] w-full  justify-center items-center ">
+              <img src={Robot} alt="smile" />
+            </div>
+           <div className="flex justify-center items-center text-lg  text-black"> 
+           <button onClick={handleClick}>Chat with EcomBot</button>
+           </div>
        </div>
     );
  }
